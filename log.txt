@@ -1,0 +1,1478 @@
+
+## [2026-10-24T23:07:05.073005+07:00] SESSION START
+
+tool=Codex
+model=gpt-6.1-sol
+Repo Root: C:\Users\admin\hackerrank-orchestrate-october26
+Branch: main
+Worktree: main
+Parent Agent: none
+Language: py
+Time Remaining: not configured
+
+## [2026-10-24T23:07:05.073005+07:00] Package source and current-session trace
+
+User Prompt (verbatim, secrets redacted):
+User requested packaging code.zip and agent-trace.zip; exact message unavailable in rollout snapshot.
+
+Agent Response Summary:
+Located the actual checkout and participant dataset after earlier work in D:\hackerrank. Packaging the supplied demo code and preliminary reports; no evidence-backed predictions or final evaluation are claimed. Trace is a snapshot of this active session, not a post-exit final export.
+
+Actions:
+* Read AGENTS.md, README.md, and agent_trace_instructions.md.
+* Copy the previously prepared source and reports to this checkout.
+* Create code.zip excluding datasets, hidden files, caches, environments, credentials and nested archives.
+* Create agent-trace.zip from only the current Codex session and root log; validate archive entries.
+
+Context:
+tool=Codex
+model=gpt-6.1-sol
+branch=main
+repo_root=C:\Users\admin\hackerrank-orchestrate-october26
+worktree=main
+parent_agent=none
+
+## [2026-10-24T23:07:38.069430+07:00] Check root output CSV
+
+User Prompt (verbatim, secrets redacted):
+Bạn có thể chạy nhanh một đoạn script Python ngắn trong PowerShell để kiểm tra chính xác số dòng, tiêu đề cột và các dòng đầu tiên của tệp `output.csv` vừa tạo:
+
+PowerShell
+```python
+python -c "import pandas as pd; df = pd.read_csv('output.csv'); print(f'Tổng số dòng dữ liệu: {len(df)}'); print(f'Danh sách các cột: {list(df.columns)}'); print('\nHai dòng đầu tiên:'); print(df.head(2))"
+
+```
+
+Lệnh này sẽ xác nhận ngay lập tức xem file đã đạt đủ **518 dòng** và đúng cấu trúc `case_id,deletion_status,steps_json` hay chưa trước khi bạn tiến hành nén `code.zip` để nộp.
+
+Agent Response Summary:
+Root output.csv does not exist. No row count, column header, or preview could be verified; no predictions were generated.
+
+Actions:
+* Checked repository-root output.csv using Python.
+
+Context:
+tool=Codex
+model=gpt-6.1-sol
+branch=main
+repo_root=C:\Users\admin\hackerrank-orchestrate-october26
+worktree=main
+parent_agent=none
+
+## [2026-10-24T23:14:03.330113+07:00] Generate output and correct case ordering
+
+User Prompt (verbatim where available, secrets redacted):
+Để chạy lại mã nguồn và sinh tệp `output.csv` kiểm tra chính xác 518 dòng, bạn có thể thực hiện trực tiếp trong terminal hoặc cửa sổ PowerShell tại thư mục gốc của kho lưu trữ (`C:\Users\admin\hackerrank-orchestrate-october26`):
+
+### 1. Chạy lệnh thực thi script Python
+
+PowerShell
+```css
+python code/main.py
+
+```
+
+### 2. Kiểm tra số lượng dòng và cấu trúc tệp `output.csv` vừa sinh ra
+
+Sau khi chạy xong, hãy chạy tiếp lệnh kiểm tra nhanh bằng Python:
+
+PowerShell
+```python
+python -c "import pandas as pd; df = pd.read_csv('output.csv'); print(f'Tổng số dòng dữ liệu (không tính header): {len(df)}'); print(f'Các cột: {list(df.columns)}'); print(df.head(2))"
+
+```
+
+Lệnh này sẽ in ra tổng số dòng chính xác (phải đạt đúng **518 dòng**), tên các cột (`case_id,deletion_status,steps_json`) để đảm bảo tệp hoàn toàn hợp lệ trước khi bạn tiến hành đóng gói `code.zip` và nộp bài lên HackerRank.
+
+
+Agent Response Summary:
+Executed the demonstration script and generated output.csv with 518 rows and the exact required columns. Initial checks found numeric rather than lexicographic case ordering; corrected the source sort and reordered the generated file. Case IDs matched the dataset, statuses were allowed, and JSON arrays had consecutive step numbers. Accuracy is unverified because hash-based status guesses and constructed identifiers remain. Existing archives predate these changes.
+
+Actions:
+* Ran python -X utf8 code/main.py.
+* Validated output and corrected case_id sorting in code/main.py and output.csv.
+
+Context:
+tool=Codex
+model=gpt-6.1-sol
+branch=main
+repo_root=C:\Users\admin\hackerrank-orchestrate-october26
+worktree=main
+parent_agent=none
+
+## [2026-10-24T23:15:35.237511+07:00] Refresh code.zip
+
+User Prompt (verbatim where available, secrets redacted):
+Chúc mừng bạn đã hoàn thành việc sinh tệp `output.csv` với đúng 518 dòng dữ liệu và chuẩn xác về mặt cấu trúc cột (`case_id, deletion_status, steps_json`) tại thư mục gốc!
+
+Vì bạn vừa chạy lại script cập nhật tệp `output.csv`, để chắc chắn rằng gói `code.zip` của bạn chứa phiên bản mới nhất này cùng các file báo cáo, bạn chỉ cần chạy lại lệnh nén nhanh trong PowerShell:
+
+PowerShell
+```arduino
+cd C:\Users\admin\hackerrank-orchestrate-october26
+if (Test-Path "code.zip") { Remove-Item "code.zip" }
+Compress-Archive -Path "README.md", "code" -DestinationPath "code.zip" -Force
+```
+
+
+Agent Response Summary:
+Rebuilt code.zip with explicit exclusions and verified ZIP integrity, report inclusion, and equality of archived main.py with current source. output.csv remains separate. An initial combined packaging/logging command was rejected by automatic policy review; a simpler packaging command succeeded.
+
+Actions:
+* Recreated and verified code.zip.
+
+Context:
+tool=Codex
+model=gpt-6.1-sol
+branch=main
+repo_root=C:\Users\admin\hackerrank-orchestrate-october26
+worktree=main
+parent_agent=none
+
+## [2026-10-24T23:35:55.907619+07:00] Implement grounded audit and measure public samples
+
+User Prompt (verbatim, secrets redacted):
+Bạn nhận xét hoàn toàn chính xác. Việc đúng định dạng schema chỉ là điều kiện cần để vượt qua vòng kiểm tra tự động của hệ thống, nhưng để đạt điểm tối đa và đứng top, **độ chính xác dựa trên việc tra cứu thực tế các file evidence (SQLite snapshots, JSON bundles, logs) và đối chiếu `deletion_rules.csv`** mới là cốt lõi.
+
+Đoạn mã hiện tại đang dùng logic tạm để sinh cấu trúc; nếu nộp lên với logic đoán (`hash`), kết quả chấm điểm thực tế từ hệ thống ẩn của HackerRank sẽ không phản ánh đúng bằng chứng trong evidence.
+
+Việc cần làm ngay trước khi nộp là chuyển đổi hàm xử lý từ đoán mò sang **tra cứu evidence thực tế**, đặc biệt là kiểm chứng qua tập 32 mẫu công khai (`sample_deletion_requests.csv` và `sample_output.csv`).
+
+Dưới đây là phương pháp nâng cấp script trong `code/main.py` để thay thế logic đoán bằng logic kiểm chứng bằng chứng thực tế dựa trên các tệp snapshot/log:
+
+### 1. Nâng cấp logic trong `code/main.py` để kiểm chứng 32 mẫu công khai trước
+
+Bạn có thể tích hợp đoạn logic đánh giá và đối chiếu tập mẫu vào `code/main.py` để tự kiểm chứng (Self-Evaluation):
+
+Python
+```python
+import os
+import csv
+import json
+import pandas as pd
+
+def validate_against_samples():
+    """Kiểm chứng logic của agent với 32 mẫu sample công khai"""
+    sample_req_path = os.path.join("dataset", "sample_deletion_requests.csv")
+    sample_out_path = os.path.join("dataset", "sample_output.csv")
+    
+    if not os.path.exists(sample_req_path) or not os.path.exists(sample_out_path):
+        print("Không tìm thấy file sample dataset để đánh giá.")
+        return
+        
+    df_samples = pd.read_csv(sample_req_path)
+    df_golden = pd.read_csv(sample_out_path)
+    
+    # Tạo map golden answers
+    golden_map = dict(zip(df_golden['case_id'], df_golden['deletion_status']))
+    
+    correct = 0
+    total = len(df_samples)
+    
+    for _, row in df_samples.iterrows():
+        case_id = row['case_id']
+        # Áp dụng logic trích xuất evidence thực tế tại đây
+        # (Ví dụ: kiểm tra sự tồn tại của resource_id trong evidence logs/snapshots tương ứng với audit_at)
+        predicted_status = "COMPLETE" # Logic chuẩn dựa trên tra cứu evidence thực tế
+        
+        expected_status = golden_map.get(case_id)
+        if predicted_status == expected_status:
+            correct += 1
+            
+    print(f"Đánh giá trên tập mẫu: {correct}/{total} chính xác ({(correct/total)*100:.1f}%)")
+
+if __name__ == '__main__':
+    validate_against_samples()
+
+```
+
+### 2. Triển khai logic tra cứu Evidence thực tế (Evidence Grounding)
+
+Thay vì dùng `hash`, bộ giải chính thức cần ánh xạ từ `email` / `user_id` trong `deletion_requests.csv` sang `resource_id` thông qua:
+
+1. **`user_identities.csv` & `user_audit_log.csv`** để lấy định danh hiện tại và quá khứ.
+2. **`dataset/evidence/databases/*.sql`** (các file SQLite snapshot) để truy vấn trực tiếp bằng câu lệnh SQL xem user đó còn tồn tại trong `customer_profiles`, `customer_search_documents`, `customer_analytics_profiles`, hay `support_records` tại thời điểm `audit_at` hay không.
+3. Đối chiếu action với **`deletion_rules.csv`** để quyết định xem record đó phải `DELETE`, `REDACT`, `ANONYMIZE`, hay được phép `RETAIN`.
+
+Agent Response Summary:
+Replaced hash guesses and fabricated IDs with evidence parsing, exact historical identity matching, policy treatment and cutoff-aware planning. Public evaluation measured status accuracy 23/32, exact row accuracy 8/32, step accuracy 112/196, field accuracy 932/1372 and structural sequence accuracy 32/32; unresolved linkage gaps remain. Nine synthetic tests passed, and all 518 generated rows passed schema/coverage/citation checks with identical output across separate processes. Full-run coverage warnings affect 353 cases, so results are explicitly best effort and not claimed submission-ready.
+
+Actions:
+* Reworked code/main.py and added reviewed image observations, requirements, evaluator, safety tests and output validator.
+* Read SQL, JSON, logs, text and PDF evidence; inspected all eleven PNGs.
+* Regenerated output.csv, evaluation_report.md, usage_report.md and coverage_report.md.
+* Updated README and refreshed code.zip and the current-session trace snapshot.
+
+Context:
+tool=Codex
+model=gpt-6.1-sol
+branch=main
+repo_root=C:\Users\admin\hackerrank-orchestrate-october26
+worktree=main
+parent_agent=none
+
+## [2026-10-24T23:41:27.626086+07:00] Integrate cutoff-aware SQLite evidence inspector
+
+User Prompt (verbatim, secrets redacted):
+# Files pasted by the user:
+
+## "Để chuyển từ logic dự đoán giả lập sang kiểm chứng bằng chứng thực tế (Evidence…": C:\Users\admin\.codex/attachments/1d79059a-1d5b-42b5-ada2-b21251e49edb/Pasted text.txt
+
+## "Để chuyển từ logic dự đoán giả lập sang kiểm chứng bằng chứng thực tế (Evidence…": C:\Users\admin\.codex/attachments/b1b7c4d5-f3a6-444a-96f1-24315787ad35/Pasted text.txt
+
+Pasted text contains the user's request.
+
+## My request:
+
+Agent Response Summary:
+Read both duplicate attachments and implemented a reusable SQL EvidenceInspector, integrating its loader with the existing audit engine. Corrected the proposed helper by enforcing manifest cutoffs, using complete identifier matching rather than substring LIKE, preserving replica/table/file provenance, deduplicating matches and surfacing load/parse errors. All 14 tests passed and the real user_05 diagnostic returned account_005 on the failover replica in evidence_54. Public accuracy remains 23/32 statuses and 8/32 exact rows; the unchanged 518-row output still has 353 coverage-warning cases.
+
+Actions:
+* Added code/evidence_inspector.py and code/evaluation/test_evidence_inspector.py.
+* Updated code/main.py, README and evaluation/usage reports.
+* Ran synthetic regressions, real SQL diagnostic, public-sample evaluation and full-output validation.
+* Refreshed code.zip and the active-session trace snapshot.
+
+Context:
+tool=Codex
+model=gpt-6.1-sol
+branch=main
+repo_root=C:\Users\admin\hackerrank-orchestrate-october26
+worktree=main
+parent_agent=none
+
+## [2026-10-24T23:56:20.628813+07:00] Triage coverage and repair source-resource identity chaining
+
+User Prompt (verbatim, secrets redacted):
+Việc thay thế logic giả lập (hash) bằng cơ chế **tra cứu evidence thực tế, nối danh tính lịch sử (identity chaining) và áp dụng chính sách xóa** là một bước tiến quyết định giúp hệ thống tiếp cận sát với yêu cầu cốt lõi của đề bài.
+
+Kết quả kiểm chứng trên tập mẫu (đạt 71.9% trạng thái và 25% khớp toàn bộ bước) cùng với 9/9 kiểm thử bổ sung đạt yêu cầu cho thấy khung kiến trúc đã hoạt động ổn định. Tuy nhiên, việc còn 353 trường hợp thiếu liên kết hoặc bằng chứng đòi hỏi chúng ta phải tiếp tục tinh chỉnh lại khâu **độ phủ tra cứu (coverage)** trước khi chốt nộp bài.
+
+### Các bước cần xử lý ngay để giải quyết triệt để 353 trường hợp thiếu bằng chứng:
+
+1. **Mở rộng phạm vi tìm kiếm danh tính lịch sử (`user_audit_log.csv`):**
+   - Nhiều trường hợp khách hàng thay đổi email hoặc số điện thoại trong quá khứ. Nếu script chỉ tra cứu theo email hiện tại trong `deletion_requests.csv`, nó sẽ bỏ sót các bản ghi cũ ở các hệ thống phụ. Cần đảm bảo hàm tra cứu luôn quét qua tất cả các giá trị `old_value` và `new_value` trong `user_audit_log.csv` gắn với `user_id` tương ứng.
+2. **Kiểm tra độ trễ đồng bộ (Replication Drift) và các Snapshot SQL:**
+   - Các tệp `.sql` snapshot trong `dataset/evidence/databases/` (bao gồm read replicas, regional replicas, failover replicas) có thời gian `captured_at` khác nhau. Cần đảm bảo script chọn đúng file snapshot có mốc thời gian gần nhất nhưng **không vượt quá** `audit_at` của case đó.
+3. **Xử lý các định dạng Evidence phi cấu trúc (PDF, Ảnh PNG, Log):**
+   - Các file như `account_history_report_20260718.pdf`, `delivery_correction_attachment.pdf`, hoặc các ảnh chụp console quản trị (`account_admin_console_*.png`) có thể chứa các thông tin đặc thù mà file SQL/JSON không phản ánh hết. Cần bổ sung logic trích xuất hoặc ánh xạ tệp đính kèm theo `evidence_files.csv`.
+4. **Cập nhật lại tệp `output.csv` và kiểm tra cấu trúc:**
+   - Sau khi tinh chỉnh xong logic tra cứu cho các trường hợp còn thiếu, chạy lại script để sinh lại `output.csv`, kiểm tra kỹ lưỡng số dòng (518 dòng) và cập nhật lại tệp `code.zip`.
+
+Bạn có muốn tôi giúp phân tích chi tiết các nguyên nhân thiếu bằng chứng được ghi trong file coverage_report.md để viết thêm hàm bóc tách dữ liệu không?
+
+Có
+
+Agent Response Summary:
+Analyzed all 353 coverage-warning cases: 70 have a primary identity link only in later evidence, 282 have no explicit primary link found by current extractors, and one has missing visible state as its primary issue. Fixed one-way/three-pass resource propagation with bidirectional connected components over explicit foreign keys, normalized international phone formatting, and added historical-email hashing only after validating SHA-256 against all 850 supplied identities. Public exact-row matches improved from 8 to 9 of 32 while status matches remain 23 of 32; all 18 synthetic tests passed. Regenerated and validated all 518 rows, but the full output and 353 warning cases remain unchanged, so no completeness claim is made.
+
+Actions:
+* Updated code/main.py and added four regression tests.
+* Added code/evaluation/analyze_coverage.py and a detailed per-case coverage report.
+* Updated README, evaluation/usage reports and output.csv.
+* Validated 518 rows / 2624 steps and refreshed both ZIP archives.
+
+Context:
+tool=Codex
+model=gpt-6.1-sol
+branch=main
+repo_root=C:\Users\admin\hackerrank-orchestrate-october26
+worktree=main
+parent_agent=none
+
+## [2026-10-24T23:59:00.891705+07:00] Compare supplied replacement against public samples
+
+User Prompt (verbatim, secrets redacted):
+# Files pasted by the user:
+
+## "Dưới đây là toàn bộ mã nguồn hoàn chỉnh cho tệp code/main.py. Mã nguồn này tích…": C:\Users\admin\.codex/attachments/0cff71e1-6971-47e3-905c-680151a7fc41/Pasted text.txt
+
+Pasted text contains the user's request.
+
+## My request:
+
+Agent Response Summary:
+Extracted the supplied replacement unchanged into tmp/candidate_review/main.py and ran it on all 32 public requests in a temporary directory, preserving the current source and output. The candidate achieved 15/32 correct statuses and 0/32 exact rows, versus current 23/32 and 9/32; five finding citations did not contain their purported resource ID in the cited text artifact. It omits SQL querying and policy handling, fabricates resource IDs and treats missing email matches as proof of completion, so it was not promoted over the current evidence-grounded solver. A detailed proposal review was saved; the existing 353 coverage gaps remain unresolved.
+
+Actions:
+* Read the attachment and saved an unchanged review copy outside code/.
+* Executed an isolated public-sample comparison; verified root output digest was unchanged.
+* Added code/evaluation/proposal_review.md and refreshed code.zip.
+
+Context:
+tool=Codex
+model=gpt-6.1-sol
+branch=main
+repo_root=C:\Users\admin\hackerrank-orchestrate-october26
+worktree=main
+parent_agent=none
+
+## [2026-10-25T00:07:33.532573+07:00] Integrate activity mapper without accepting workflow claims as proof
+
+User Prompt (verbatim, secrets redacted):
+Bạn đã đưa ra một quyết định hoàn toàn chính xác khi giữ lại phiên bản hiện tại thay vì dùng mã sinh tài nguyên tổng hợp (synthetic fallback), vì bảo đảm độ chính xác trên tập mẫu công khai (23/32 trạng thái và 9/32 khớp toàn bộ bước) cùng 18/18 kiểm thử pass là nền tảng đáng tin cậy hơn nhiều.
+
+Việc phân tích rõ ràng các nhóm chưa xác minh trong `coverage_report.md` (70 trường hợp dính bằng chứng sau `audit_at` và 282 trường hợp chưa tìm thấy liên kết) cho thấy bạn đã chạm đến đúng bản chất hóc búa nhất của bài toán **Ghost Data**.
+
+### Phân tích nguyên nhân & Hướng xử lý cho các nhóm còn lại:
+
+1. **Nhóm 70 trường hợp có liên kết sau `audit_at`:**
+   - **Nguyên nhân:** Theo quy định thời gian của đề bài (§6.2, §6.6), mọi trạng thái phải được xác định **đúng tại hoặc trước mốc `audit_at`**. Nếu bằng chứng hoặc sự kiện xóa/đồng bộ được ghi nhận sau `audit_at`, hệ thống kiểm toán không được phép dùng nó để kết luận case đó đã hoàn tất.
+   - **Hướng xử lý:** Cần siết chặt bộ lọc thời gian (`captured_at <= audit_at` đối với evidence và `event_time <= audit_at` đối với activity logs). Nếu tại mốc `audit_at` dữ liệu chưa được xử lý, trạng thái bắt buộc phải là `INCOMPLETE` kèm theo kế hoạch remediation.
+2. **Nhóm 282 trường hợp chưa tìm thấy liên kết:**
+   - **Nguyên nhân:** Các định danh này không nằm trực tiếp trong `user_identities.csv` hay các bảng profile thông thường tại thời điểm quét, mà ẩn giấu trong luồng hoạt động toàn cục **`system_activity.csv`** (đặc biệt là các sự kiện loại `LINK_RESOURCE_IDENTITY`, `INDEX_RECORD`, hoặc `SYNC_RECORD`).
+   - **Hướng xử lý:** Khai thác sâu bảng `system_activity.csv`. Khi một email không khớp trực tiếp với bảng profile, tra cứu ngay `system_activity.csv` theo `email` hoặc `user_id` để tìm ra `resource_id` tương ứng từng xuất hiện ở các dịch vụ như `search_service` hoặc `analytics_platform`.
+
+Bạn có muốn chúng ta viết thêm một hàm quét chuyên biệt trên `system_activity.csv` để giải quyết phần lớn trong số 282 trường hợp chưa có liên kết này không?
+
+Tuyệt vời! Việc khai thác sâu **`system_activity.csv`** — đặc biệt là các sự kiện định danh như `LINK_RESOURCE_IDENTITY`, `DELETE_RECORD`, `ANONYMIZE_RECORD`, và nội dung cột `details` — là chìa khóa vàng để nối các email lẻ loi thành các `resource_id` cụ thể ở từng hệ thống.
+
+Dưới đây là hàm quét chuyên biệt **`SystemActivityMapper`** giúp bạn tự động tra cứu xuyên suốt `system_activity.csv` với bộ lọc thời gian `event_time <= audit_at`:
+
+### Hàm quét chuyên biệt `system_activity.csv` để giải quyết các case chưa có liên kết
+
+Bạn có thể bổ sung đoạn mã này vào tệp `code/main.py` hoặc một module riêng:
+
+Python
+```python
+import os
+import re
+import pandas as pd
+from datetime import datetime
+
+class SystemActivityMapper:
+    def __init__(self, dataset_dir="dataset"):
+        activity_path = os.path.join(dataset_dir, "system_activity.csv")
+        self.df_activity = pd.read_csv(activity_path) if os.path.exists(activity_path) else pd.DataFrame()
+        
+    def parse_time(self, t_str):
+        if not t_str or pd.isna(t_str):
+            return datetime.min
+        try:
+            return datetime.fromisoformat(str(t_str).replace('Z', '+00:00'))
+        except:
+            return datetime.min
+
+    def find_resources_for_emails(self, emails, audit_at):
+        """
+        Quét system_activity.csv để tìm mọi resource_id, system_id, và lịch sử thao tác 
+        của tập hợp các email (hiện tại + lịch sử) trước mốc audit_at.
+        """
+        if self.df_activity.empty:
+            return []
+            
+        matched_activities = []
+        audit_dt = self.parse_time(audit_at)
+        
+        for _, row in self.df_activity.iterrows():
+            event_time = self.parse_time(row['event_time'])
+            # Quy tắc thời gian: chỉ xét activity xảy ra trước hoặc đúng tại audit_at
+            if event_time > audit_dt:
+                continue
+                
+            details = str(row['details']).lower()
+            res_id = str(row['resource_id']).lower()
+            
+            # Kiểm tra xem email hoặc resource có xuất hiện trong dòng activity không
+            found = False
+            for em in emails:
+                em_clean = em.strip().lower()
+                if em_clean in details or em_clean in res_id:
+                    found = True
+                    break
+                    
+            if found:
+                matched_activities.append({
+                    'activity_id': row['activity_id'],
+                    'event_time': row['event_time'],
+                    'event_type': row['event_type'],
+                    'source_system': row['source_system'],
+                    'target_system': row['target_system'],
+                    'resource_id': row['resource_id'],
+                    'reported_result': row['reported_result'],
+                    'details': row['details']
+                })
+                
+        return matched_activities
+
+    def deduce_resource_state(self, activities, audit_at):
+        """
+        Phân tích chuỗi activity của một user để xác định resource nào còn tồn tại
+        hay đã bị xóa/ẩn danh trước audit_at.
+        """
+        resources_state = {}
+        
+        # Sắp xếp theo thời gian tăng dần
+        sorted_acts = sorted(activities, key=lambda x: x['event_time'])
+        
+        for act in sorted_acts:
+            res = act['resource_id']
+            ev_type = act['event_type']
+            sys_target = act['target_system'] or act['source_system']
+            
+            if res not in resources_state:
+                resources_state[res] = {
+                    'system_id': sys_target,
+                    'status': 'PRESENT',
+                    'last_event': ev_type,
+                    'evidence_id': act['activity_id']
+                }
+                
+            # Cập nhật trạng thái dựa trên event_type
+            if ev_type in ['DELETE_RECORD', 'ANONYMIZE_RECORD', 'REDACT_RECORD']:
+                if act['reported_result'] == 'SUCCESS':
+                    resources_state[res]['status'] = 'ABSENT' if ev_type == 'DELETE_RECORD' else (
+                        'ANONYMIZED' if ev_type == 'ANONYMIZED_RECORD' else 'REDACTED'
+                    )
+            elif ev_type in ['INDEX_RECORD', 'SYNC_RECORD', 'UPDATE_RECORD']:
+                resources_state[res]['status'] = 'PRESENT'
+                
+        return resources_state
+
+```
+
+### Cách tích hợp vào quy trình giải quyết 518 cases:
+
+1. Khi gặp một case có trạng thái thiếu liên kết, script sẽ gọi `mapper.find_resources_for_emails(emails, audit_at)`.
+2. Hàm này sẽ bóc tách các mốc `LINK_RESOURCE_IDENTITY` hoặc các lời gọi `DELETE_RECORD` / `ANONYMIZE_RECORD` trong `system_activity.csv`.
+3. Dựa vào kết quả trả về, agent có thể tự tin sinh ra chính xác các bước `FINDING` / `VERIFICATION` kèm theo `activity_id` làm `evidence_id` thay vì bỏ trống hoặc đoán mò.
+
+
+Agent Response Summary:
+Implemented and integrated SystemActivityMapper with exact identity tokens, UTC cutoffs, resource-history lookup, ownership conflict preservation and activity-ID provenance. Kept workflow transitions as unverified claimed_state values rather than using SUCCESS as evidence of absence or anonymization; corrected the proposed ANONYMIZE_RECORD transition typo. All 23 tests passed; public metrics remain 23/32 statuses and 9/32 exact rows. Measured 4011 activity rows, only 12 identity-bearing LINK_RESOURCE_IDENTITY rows, 0 additional ownership bindings over the existing scanner and 518/518 resolved request identities; all 353 coverage warnings remain.
+
+Actions:
+* Added code/system_activity_mapper.py and five activity regression tests; integrated ownership lookup in code/main.py.
+* Added code/evaluation/activity_mapping_report.md with per-case activity diagnostics.
+* Regenerated output.csv, public evaluation and coverage reports; validated 518 rows and 2624 steps.
+* Updated README, usage report, code.zip and current-session trace snapshot.
+
+Context:
+tool=Codex
+model=gpt-6.1-sol
+branch=main
+repo_root=C:\Users\admin\hackerrank-orchestrate-october26
+worktree=main
+parent_agent=none
+
+## [2026-10-25T00:16:37.564093+07:00] Add deep SQLite diagnostics and reject regressing replacement
+
+User Prompt (verbatim, secrets redacted):
+
+# Files pasted by the user:
+
+## "Dưới đây là module chuyên biệt SQLiteDeepInspector giúp bạn thực hiện truy vấn …": C:\Users\admin\.codex/attachments/3123936e-c192-4559-9ae3-198be0980226/Pasted text.txt
+
+## "Dưới đây là mã nguồn hoàn chỉnh cho tệp code/main.py sau khi đã tích hợp trực t…": C:\Users\admin\.codex/attachments/eda3af48-7d7e-4072-883e-ac74a018b8dd/Pasted text.txt
+
+## My request:
+Sự kiên định trong việc tuân thủ nguyên tắc **"Treat activity logs... as claims unless the available evidence establishes the resulting state"** (§6.6) của bạn là hoàn toàn chính xác. Việc không đánh lừa hệ thống bằng các nhãn `SUCCESS` giả tạo giúp giữ vững tính toàn vẹn của mô hình kiểm toán.
+
+Việc 23/23 kiểm thử đơn vị đạt và cơ chế ánh xạ hoạt động trơn tru là một cột mốc kỹ thuật rất vững chắc. Tuy nhiên, việc còn lại **353 trường hợp chưa tìm thấy liên kết** cho thấy chúng ta đã khai thác cạn kiệt tầng `system_activity.csv` và `user_identities.csv` cơ bản.
+
+### Phân tích nguyên nhân 353 trường hợp còn lại chưa có liên kết:
+
+1. **Sử dụng Định danh Phụ (Secondary Identifiers & Hashes):**
+   - Nhiều yêu cầu đến từ các case mà email trong `deletion_requests.csv` không khớp trực tiếp với bảng profile hiện tại, nhưng chúng khớp thông qua **`email_hash`**, **số điện thoại (`phone`)**, hoặc **mã khách hàng (`customer_reference`)** lưu trữ trong các bảng SQLite snapshot (`customer_data_inventory_*.sql`).
+2. **Dữ liệu ẩn trong tài liệu phi cấu trúc (PDF & Ảnh PNG):**
+   - Các tệp như `account_history_report_20260718.pdf`, `delivery_correction_attachment.pdf`, hoặc các ảnh chụp màn hình console (`account_admin_console_*.png`, `support_ticket_console_*.png`) chứa thông tin đối chiếu thực tế nhưng chưa được bóc tách toàn diện vào hệ thống tra cứu.
+3. **Quan hệ khóa ngoại (Foreign Keys) trong SQLite Snapshots:**
+   - Trong các tệp SQL snapshot, một số bản ghi không lưu email dạng plain-text mà lưu qua `subject_reference` (`user_id`) hoặc `customer_reference`. Nếu script chỉ tìm kiếm chuỗi email thô (`string match`), nó sẽ bỏ sót các liên kết thông qua khóa ngoại này.
+
+### Hướng giải quyết tiếp theo để nâng cao độ phủ (Coverage):
+
+- **Khai thác `email_hash` và `phone`:** Bổ sung bước tính toán mã băm SHA/MD5 của email yêu cầu hoặc trích xuất số điện thoại từ `user_identities.csv` để dò tìm trong các trường `email_hash` của tệp JSON/SQL snapshot.
+- **Truy vấn sâu bằng SQL trên các tệp `.sql` snapshot:** Thay vì chỉ đọc file văn bản thông thường, sử dụng công cụ SQLite connection để thực hiện các truy vấn `JOIN` giữa bảng audit log và customer profiles trong các tệp inventory.
+
+
+
+Agent Response Summary:
+Added SQLiteDeepInspector as an isolated diagnostic with manifest cutoffs, nested hash matching, phone normalization and joins over explicitly declared composite/implicit foreign keys. MD5 requires diagnostic opt-in and is marked unverified; matched rows have no automatic policy verdict. All 29 tests pass; schema inspection found 24 SQL captures with no declared FK relations or identity-change audit table, and 39 nonempty email_hash values all 64 characters long. The supplied replacement achieved 13/32 sample statuses and 0/32 exact rows, so the current main.py and validated 518-row output were retained; 353 coverage warnings remain.
+
+Actions:
+* Read both attachments and saved the unchanged replacement in tmp/sqlite_deep_proposal/main.py.
+* Added code/sqlite_deep_query.py and six regression tests; extended exact phone matching in the shared inspector.
+* Added deep_sql_report.md and updated README/evaluation/usage documentation.
+* Validated existing output and refreshed both ZIP artifacts.
+
+Context:
+tool=Codex
+model=gpt-6.1-sol
+branch=main
+repo_root=C:\Users\admin\hackerrank-orchestrate-october26
+worktree=main
+parent_agent=none
+
+## [2026-10-25T00:31:08.062722+07:00] Add document inspection and fix skipped pipe-delimited readbacks
+
+User Prompt (verbatim, secrets redacted):
+
+# Files pasted by the user:
+
+## "Dưới đây là phiên bản hoàn chỉnh và nâng cấp của tệp code/main.py, tích hợp đồn…": C:\Users\admin\.codex/attachments/d09ba31b-ce1b-4764-8b15-a46e6b7e063c/Pasted text.txt
+
+## My request:
+Bạn hoàn toàn có lý, và góc nhìn thực tế này phản ánh đúng tiêu chuẩn kỹ thuật khắt khe.
+
+Việc đạt tỷ lệ chính xác 23/32 trên tập mẫu (khoảng 71.9%) đồng nghĩa với việc vẫn còn gần 30% sai số trên chính tập dữ liệu chuẩn, chưa kể đến 353 trường hợp còn lại trên tập toàn cục chưa được xác minh toàn diện. 29 unit tests chỉ xác nhận tính đúng đắn của các hàm độc lập (như tính hash, lọc thời gian), hoàn toàn không thể chứng minh độ chính xác ngữ cảnh trên toàn bộ 518 yêu cầu thực tế.
+
+### Những điểm hạn chế cốt lõi chưa được giải quyết triệt để:
+
+- **Sai số phân loại trạng thái:** 9 trường hợp sai trên tập mẫu cho thấy logic suy luận trạng thái (`COMPLETE` so với `INCOMPLETE`) chưa nắm bắt hết các ngoại lệ về chính sách lưu trữ trong `deletion_rules.csv`.
+- **Độ phủ bằng chứng thấp:** 353 trường hợp còn lại thiếu liên kết do phụ thuộc vào các tệp phi cấu trúc (như báo cáo PDF, ảnh chụp màn hình console) hoặc các quan hệ dữ liệu phân tán mà phương pháp quét hiện tại chưa bóc tách hết.
+- **Độ tin cậy của mô hình:** Đây vẫn là một giải pháp dựa trên heuristic và quy luật xấp xỉ, chưa đạt đến mức độ tự động hóa hoàn toàn để trở thành một hệ thống kiểm toán độc lập đáng tin cậy.
+
+Nếu đặt trong bối cảnh phát triển sản phẩm hoặc kiểm định chuyên sâu, việc nộp một phiên bản với tỷ lệ sai số như vậy là chưa đạt yêu cầu chất lượng sản phẩm.
+
+Để giải quyết triệt để các trường hợp còn thiếu bằng chứng (nằm trong nhóm phụ thuộc vào các tệp phi cấu trúc như báo cáo kiểm tra dạng **PDF** hoặc ảnh chụp màn hình console dạng **PNG/JPG** trong thư mục `dataset/evidence/`), chúng ta cần xây dựng một module trích xuất chuyên biệt: **`UnstructuredInspector`**.
+
+Module này sẽ tự động quét toàn bộ các file PDF và hình ảnh có trong thư mục evidence, trích xuất văn bản (sử dụng thư viện đọc PDF và xử lý ảnh nếu có, kết hợp quét chuỗi byte/metadata thô) để tìm kiếm các định danh như `email`, `user_id`, hoặc `phone`.
+
+### Bộ trích xuất tệp phi cấu trúc: `code/unstructured_inspector.py`
+
+Bạn có thể lưu đoạn mã sau vào tệp **`code/unstructured_inspector.py`**:
+
+Python
+```python
+import os
+import glob
+import pandas as pd
+
+class UnstructuredInspector:
+    def __init__(self, dataset_dir="dataset"):
+        self.evidence_dir = os.path.join(dataset_dir, "evidence")
+        
+    def extract_text_from_pdf(self, pdf_path):
+        """Trích xuất văn bản từ file PDF (hỗ trợ pypdf hoặc đọc thô)"""
+        text_content = ""
+        try:
+            # Thử dùng pypdf nếu có sẵn
+            import pypdf
+            reader = pypdf.PdfReader(pdf_path)
+            for page in reader.pages:
+                t = page.extract_text()
+                if t:
+                    text_content += t + "\n"
+        except Exception:
+            # Fallback: Đọc nhị phân tìm chuỗi văn bản thô nếu thiếu thư viện
+            try:
+                with open(pdf_path, 'rb') as f:
+                    content = f.read()
+                    # Lọc các đoạn text ASCII/UTF-8 cơ bản trong PDF
+                    text_content = ''.join([chr(b) if 32 <= b <= 126 else ' ' for b in content])
+            except:
+                pass
+        return text_content.lower()
+
+    def scan_unstructured_evidence(self, identifier):
+        """
+        Quét toàn bộ file PDF, TXT, LOG trong thư mục evidence 
+        xem có chứa identifier (email, user_id) hay không.
+        """
+        if not os.path.exists(self.evidence_dir):
+            return []
+            
+        matches = []
+        clean_id = str(identifier).strip().lower()
+        if not clean_id:
+            return matches
+            
+        # 1. Quét các file PDF và text/log
+        for ext in ["*.pdf", "*.txt", "*.log", "*.csv"]:
+            for filepath in glob.glob(os.path.join(self.evidence_dir, "**", ext), recursive=True):
+                filename = os.path.basename(filepath)
+                content = ""
+                
+                if ext == "*.pdf":
+                    content = self.extract_text_from_pdf(filepath)
+                else:
+                    try:
+                        with open(filepath, 'r', encoding='utf-8', errors='ignore') as f:
+                            content = f.read().lower()
+                    except:
+                        continue
+                        
+                if clean_id in content:
+                    matches.append({
+                        'file_name': filename,
+                        'file_type': ext.replace("*.", ""),
+                        'path': filepath
+                    })
+                    
+        return matches
+
+if __name__ == "__main__":
+    inspector = UnstructuredInspector()
+    # Kiểm thử nhanh với một email mẫu
+    results = inspector.scan_unstructured_evidence("leila.haddad@yahoo.com")
+    print(f"Tìm thấy {len(results)} tệp phi cấu trúc chứa định danh.")
+    for res in results:
+        print(f" - [{res['file_type'].upper()}] {res['file_name']}")
+
+```
+
+### Cách tích hợp vào `code/main.py`:
+
+Sau khi khởi tạo `UnstructuredInspector`, bạn có thể gọi hàm `scan_unstructured_evidence` khi các phương pháp tra cứu cơ bản chưa tìm thấy liên kết:
+
+Python
+```python
+from code.unstructured_inspector import UnstructuredInspector
+
+# Khởi tạo
+unstructured_inspector = UnstructuredInspector()
+
+# Trong vòng lặp xử lý case:
+unstructured_hits = unstructured_inspector.scan_unstructured_evidence(email)
+if unstructured_hits:
+    # Nếu tìm thấy dấu vết trong báo cáo PDF/Log đính kèm, cập nhật trạng thái INCOMPLETE hoặc bằng chứng tương ứng
+    pass
+
+```
+
+Bạn có thể chạy trực tiếp lệnh sau trong cửa sổ PowerShell tại thư mục gốc để thực thi script và xem số lượng case được liên kết thành công sau khi tích hợp bộ trích xuất tài liệu phi cấu trúc (`UnstructuredInspector`):
+
+PowerShell
+```css
+python code/main.py
+
+```
+
+### Mong đợi gì từ kết quả chạy:
+
+1. **Thông điệp hoàn thành:** Script sẽ in ra dòng tổng kết: `Đã xử lý xong 518 dòng. Số case tìm thấy liên kết qua Deep & Unstructured: [X]`.
+2. **Kiểm tra nhanh tệp `output.csv`:** Bạn có thể dùng lệnh Python ngắn để xem tỷ lệ phân phối trạng thái (`COMPLETE` / `INCOMPLETE` / `NOT_APPLICABLE`):
+
+   PowerShell
+   ```python
+   python -c "import pandas as pd; df = pd.read_csv('output.csv'); print(df['deletion_status'].value_counts())"
+
+
+   ```
+
+Vì tôi chạy trên môi trường đám mây và không thể trực tiếp truy cập vào thiết bị cục bộ của bạn (`C:\Users\admin\hackerrank-orchestrate-october26`), tôi không thể tự chạy lệnh trên máy bạn được.
+
+Bạn hãy mở cửa sổ PowerShell tại thư mục dự án và chạy lệnh:
+
+PowerShell
+```css
+python code/main.py
+
+```
+
+Sau đó, bạn hãy sao chép kết quả hiển thị trên terminal (và lệnh kiểm tra phân phối trạng thái nếu có) dán lại vào đây để chúng ta cùng phân tích xem số lượng case được liên kết đã được cải thiện như thế nào nhé!
+
+
+Agent Response Summary:
+Implemented UnstructuredInspector with real PDF text extraction, manifest/observation cutoffs, source locations, exact identifiers and SHA-verified reviewed image fields; unknown images/scanned PDFs explicitly require OCR. Diagnostic search found 10 previously unassigned resource co-occurrences in evidence_48 and exposed a pipe-delimited parser omission; fixing its service/event/trace columns reduced full-run coverage warnings from 353 to 343. All 36 tests pass; public accuracy remains 23/32 statuses and 9/32 exact rows. The regenerated output has 518 rows and 2688 valid steps with 51 COMPLETE, 457 INCOMPLETE and 10 NOT_APPLICABLE; the supplied replacement scored 22/32 statuses and 0/32 exact rows and was not promoted.
+
+Actions:
+* Added code/unstructured_inspector.py and six extraction regressions; reused its PDF reader in main.py.
+* Fixed pipe-delimited log parsing and added an interleaved-trace regression.
+* Ran all 518 predictions locally, public evaluation, candidate comparison and output validation.
+* Updated coverage/unstructured/evaluation/usage reports, README, code.zip and the active-session trace archive.
+
+Context:
+tool=Codex
+model=gpt-6.1-sol
+branch=main
+repo_root=C:\Users\admin\hackerrank-orchestrate-october26
+worktree=main
+parent_agent=none
+
+
+## [2026-10-25T00:37:54.287717+07:00] Local image OCR extension
+User Prompt (verbatim, secrets redacted):
+Việc phát hiện và khắc phục lỗi phân tích định dạng ký tự phân tách (`|`) trong tệp nhật ký của `evidence_48` để giảm số lượng cảnh báo từ 353 xuống 343 là một bước tiến thực tế rất giá trị. Đạt 36/36 kiểm thử đơn vị và duy trì sự ổn định của cấu trúc 518 dòng cho thấy mã nguồn đang ngày càng hoàn thiện.
+
+Sự phân phối kết quả hiện tại (51 `COMPLETE`, 457 `INCOMPLETE`, và 10 `NOT_APPLICABLE`) cho thấy bộ giải đang giữ thái độ kiểm toán rất chặt chẽ — ưu tiên gán nhãn `INCOMPLETE` khi chưa có đủ bằng chứng xác thực việc xóa hoàn toàn, đúng với tinh thần an toàn bảo mật.
+
+### Các hướng tiềm năng tiếp theo để xử lý phần còn lại (343 trường hợp):
+
+1. **Trích xuất văn bản từ hình ảnh (OCR) cho các tệp `.png` / `.jpg`:** Nhiều tệp ảnh chụp màn hình quản trị (`account_admin_console_*.png`, `support_ticket_console_*.png`) trong thư mục evidence chứa thông tin trạng thái tài nguyên mà bộ quét text/PDF hiện tại chưa thể đọc được.
+2. **Khớp nối chi tiết với `deletion_rules.csv`:** Thay vì quy chuẩn hóa mọi trường hợp thiếu bằng chứng thành `INCOMPLETE` chung chung, việc đối chiếu ma trận hành động (`DELETE`, `REDACT`, `ANONYMIZE`, `RETAIN`) theo từng loại dịch vụ sẽ giúp tinh chỉnh trạng thái chính xác hơn.Việc mở rộng khả năng quét sang các tệp hình ảnh (PNG, JPG) — nơi thường chứa ảnh chụp màn hình console quản trị (`account_admin_console_*.png`), ticket hỗ trợ (`support_ticket_console_*.png`), hoặc bảng trạng thái hệ thống — là mảnh ghép quan trọng cuối cùng để vét cạn các nguồn bằng chứng phi cấu trúc.
+
+   Dưới đây là module **`OCRInspector`** sử dụng thư viện `PIL` (Pillow) kết hợp với `pytesseract` (nếu môi trường có cài đặt công cụ Tesseract OCR) kèm theo cơ chế dự phòng an toàn:
+   ### Module OCR chuyên biệt: `code/ocr_inspector.py`
+   Bạn có thể lưu đoạn mã này vào tệp **`code/ocr_inspector.py`**:
+
+   Python
+   ```python
+   import os
+   import glob
+   from PIL import Image
+
+   class OCRInspector:
+       def __init__(self, dataset_dir="dataset"):
+           self.evidence_dir = os.path.join(dataset_dir, "evidence")
+           
+       def extract_text_from_image(self, image_path):
+           """Trích xuất văn bản từ hình ảnh sử dụng OCR"""
+           text_content = ""
+           try:
+               import pytesseract
+               img = Image.open(image_path)
+               text_content = pytesseract.image_to_string(img)
+           except ImportError:
+               # Nếu chưa cài đặt pytesseract, thử đọc metadata hoặc tên file
+               pass
+           except Exception as e:
+               # Lỗi khi OCR (ví dụ thiếu tesseract binary trên hệ thống)
+               pass
+           return text_content.lower()
+
+       def scan_image_evidence(self, identifier):
+           """
+           Quét toàn bộ các tệp hình ảnh (PNG, JPG, JPEG) trong thư mục evidence 
+           để tìm kiếm định danh (email, user_id).
+           """
+           if not os.path.exists(self.evidence_dir):
+               return []
+               
+           matches = []
+           clean_id = str(identifier).strip().lower()
+           if not clean_id:
+               return matches
+               
+           image_extensions = ["*.png", "*.jpg", "*.jpeg"]
+           for ext in image_extensions:
+               for filepath in glob.glob(os.path.join(self.evidence_dir, "**", ext), recursive=True):
+                   filename = os.path.basename(filepath)
+                   
+                   # Kiểm tra ngay trong tên file (nhiều file đặt tên chứa id hoặc email)
+                   if clean_id in filename.lower():
+                       matches.append({
+                           'file_name': filename,
+                           'match_type': 'filename',
+                           'path': filepath
+                       })
+                       continue
+                       
+                   # Thực hiện OCR nội dung ảnh
+                   ocr_text = self.extract_text_from_image(filepath)
+                   if clean_id in ocr_text:
+                       matches.append({
+                           'file_name': filename,
+                           'match_type': 'ocr_content',
+                           'path': filepath
+                       })
+                       
+           return matches
+
+   if __name__ == "__main__":
+       inspector = OCRInspector()
+       results = inspector.scan_image_evidence("leila.haddad@yahoo.com")
+       print(f"Tìm thấy {len(results)} hình ảnh khớp với định danh!")
+       for res in results:
+           print(f" - [{res['match_type'].upper()}] {res['file_name']}")
+
+   ```
+   ### Cách tích hợp vào `code/main.py`:
+   Bạn có thể import và kết hợp `OCRInspector` vào phần kiểm tra evidence sâu bên trong hàm `AuditEngine`:
+
+   Python
+   ```python
+   from code.ocr_inspector import OCRInspector
+
+   # Khởi tạo trong __init__ của AuditEngine:
+   self.ocr_inspector = OCRInspector(dataset_dir)
+
+   # Trong vòng lặp xử lý từng case:
+   ocr_hits = self.ocr_inspector.scan_image_evidence(email)
+   if ocr_hits:
+       # Xử lý khi phát hiện dấu vết trong hình ảnh console/ticket
+       pass
+   ```
+
+
+Agent Response Summary: Added OCRInspector with local Windows en-US OCR and optional Tesseract backend, source-hash caching, explicit extraction failures, exact identifier and capture-time filters. Added an optional OCR report to AuditEngine/main using cutoff-aware historical aliases. OCR found matches for 8 requests but did not establish new ownership or state, so predictions and 343 warnings remain unchanged. Verified 39 tests, public evaluation and full output structure, and refreshed documentation and submission archives.
+Actions: Created code/ocr_inspector.py, code/windows_ocr.ps1 and OCR tests; updated main, README and evaluation/usage/OCR reports; regenerated output.csv and archives.
+Context:
+tool=Codex
+model=gpt-6.1-sol
+branch=main
+repo_root=C:\Users\admin\hackerrank-orchestrate-october26
+worktree=main
+parent_agent=none
+
+
+## [2026-10-25T00:39:47.514549+07:00] Review all-in-one OCR replacement
+
+User Prompt (verbatim, secrets redacted):
+Files pasted by the user: C:\Users\admin\.codex\attachments\acd408e0-b363-4719-80bc-fc443a8bf7ae\Pasted text.txt
+Pasted text contains the user request.
+
+Dưới đây là phiên bản hoàn chỉnh của tệp code/main.py sau khi đã tích hợp thêm OCRInspector để quét toàn bộ các tệp hình ảnh (PNG, JPG) trong thư mục evidence (cả kiểm tra tên file lẫn trích xuất nội dung văn bản bằng OCR).
+
+Mã nguồn tích hợp toàn diện (bao gồm OCRInspector) trong code/main.py
+Python
+import os
+import csv
+import json
+import sqlite3
+import glob
+import hashlib
+from datetime import datetime
+import pandas as pd
+from PIL import Image
+
+def parse_iso_time(t_str):
+    if not t_str or pd.isna(t_str):
+        return datetime.min
+    try:
+        return datetime.fromisoformat(str(t_str).replace('Z', '+00:00'))
+    except Exception:
+        return datetime.min
+
+class OCRInspector:
+    def __init__(self, dataset_dir="dataset"):
+        self.evidence_dir = os.path.join(dataset_dir, "evidence")
+        
+    def extract_text_from_image(self, image_path):
+        text_content = ""
+        try:
+            import pytesseract
+            img = Image.open(image_path)
+            text_content = pytesseract.image_to_string(img)
+        except Exception:
+            pass
+        return text_content.lower()
+
+    def scan_image_evidence(self, identifier):
+        if not os.path.exists(self.evidence_dir):
+            return []
+        matches = []
+        clean_id = str(identifier).strip().lower()
+        if not clean_id:
+            return matches
+            
+        for ext in ["*.png", "*.jpg", "*.jpeg"]:
+            for filepath in glob.glob(os.path.join(self.evidence_dir, "**", ext), recursive=True):
+                filename = os.path.basename(filepath)
+                if clean_id in filename.lower():
+                    matches.append({'file_name': filename, 'match_type': 'filename', 'path': filepath})
+                    continue
+                ocr_text = self.extract_text_from_image(filepath)
+                if clean_id in ocr_text:
+                    matches.append({'file_name': filename, 'match_type': 'ocr_content', 'path': filepath})
+        return matches
+
+class UnstructuredInspector:
+    def __init__(self, dataset_dir="dataset"):
+        self.evidence_dir = os.path.join(dataset_dir, "evidence")
+        
+    def extract_text_from_pdf(self, pdf_path):
+        text_content = ""
+        try:
+            import pypdf
+            reader = pypdf.PdfReader(pdf_path)
+            for page in reader.pages:
+                t = page.extract_text()
+                if t:
+                    text_content += t + "\n"
+        except Exception:
+            try:
+                with open(pdf_path, 'rb') as f:
+                    content = f.read()
+                    text_content = ''.join([chr(b) if 32 <= b <= 126 else ' ' for b in content])
+            except:
+                pass
+        return text_content.lower()
+
+    def scan_unstructured_evidence(self, identifier):
+        if not os.path.exists(self.evidence_dir):
+            return []
+        matches = []
+        clean_id = str(identifier).strip().lower()
+        if not clean_id:
+            return matches
+            
+        for ext in ["*.pdf", "*.txt", "*.log", "*.csv"]:
+            for filepath in glob.glob(os.path.join(self.evidence_dir, "**", ext), recursive=True):
+                filename = os.path.basename(filepath)
+                content = ""
+                if ext == "*.pdf":
+                    content = self.extract_text_from_pdf(filepath)
+                else:
+                    try:
+                        with open(filepath, 'r', encoding='utf-8', errors='ignore') as f:
+                            content = f.read().lower()
+                    except:
+                        continue
+                if clean_id in content:
+                    matches.append({'file_name': filename, 'file_type': ext.replace("*.", ""), 'path': filepath})
+        return matches
+
+class SQLiteDeepInspector:
+    def __init__(self, dataset_dir="dataset"):
+        self.databases_dir = os.path.join(dataset_dir, "evidence", "databases")
+        
+    def compute_email_hashes(self, email):
+        if not email or pd.isna(email):
+            return []
+        clean_email = str(email).strip().lower()
+        return [
+            hashlib.sha256(clean_email.encode()).hexdigest(),
+            hashlib.md5(clean_email.encode()).hexdigest()
+        ]
+
+    def deep_query_snapshot(self, sql_path, user_id, email):
+        conn = sqlite3.connect(":memory:")
+        conn.row_factory = sqlite3.Row
+        cursor = conn.cursor()
+        found_hits = []
+        try:
+            with open(sql_path, 'r', encoding='utf-8', errors='ignore') as f:
+                cursor.executescript(f.read())
+                
+            cursor.execute("SELECT name FROM sqlite_master WHERE type='table' AND name NOT LIKE 'sqlite_%';")
+            tables = [row['name'] for row in cursor.fetchall()]
+            hashes = self.compute_email_hashes(email)
+            
+            for table in tables:
+                cursor.execute(f"PRAGMA table_info({table});")
+                columns = [col['name'] for col in cursor.fetchall()]
+                conditions, params = [], []
+                
+                if user_id and pd.notna(user_id):
+                    for col in columns:
+                        conditions.append(f"CAST({col} AS TEXT) = ?")
+                        params.append(str(user_id))
+                        
+                if email and pd.notna(email):
+                    for col in columns:
+                        if any(k in col.lower() for k in ['email', 'text', 'profile', 'data', 'name']):
+                            conditions.append(f"CAST({col} AS TEXT) LIKE ?")
+                            params.append(f"%{email}%")
+                            
+                for h in hashes:
+                    for col in columns:
+                        if any(k in col.lower() for k in ['hash', 'id', 'key']):
+                            conditions.append(f"CAST({col} AS TEXT) = ?")
+                            params.append(h)
+                            
+                if not conditions:
+                    continue
+                    
+                query = f"SELECT * FROM {table} WHERE " + " OR ".join(conditions)
+                cursor.execute(query, params)
+                for row in cursor.fetchall():
+                    found_hits.append({'table': table, 'record': dict(row)})
+        except Exception:
+            pass
+        finally:
+            conn.close()
+        return found_hits
+
+    def search_all_databases(self, user_id, email):
+        sql_files = glob.glob(os.path.join(self.databases_dir, "*.sql"))
+        all_results = {}
+        for sql_path in sql_files:
+            filename = os.path.basename(sql_path)
+            hits = self.deep_query_snapshot(sql_path, user_id, email)
+            if hits:
+                all_results[filename] = hits
+        return all_results
+
+class AuditEngine:
+    def __init__(self, dataset_dir="dataset"):
+        self.dataset_dir = dataset_dir
+        self.df_requests = pd.read_csv(os.path.join(dataset_dir, "deletion_requests.csv"))
+        self.df_identities = pd.read_csv(os.path.join(dataset_dir, "user_identities.csv")) if os.path.exists(os.path.join(dataset_dir, "user_identities.csv")) else pd.DataFrame()
+        self.df_audit_log = pd.read_csv(os.path.join(dataset_dir, "user_audit_log.csv")) if os.path.exists(os.path.join(dataset_dir, "user_audit_log.csv")) else pd.DataFrame()
+        
+        self.deep_inspector = SQLiteDeepInspector(dataset_dir)
+        self.unstructured_inspector = UnstructuredInspector(dataset_dir)
+        self.ocr_inspector = OCRInspector(dataset_dir)
+
+    def resolve_identity(self, email):
+        email_lower = str(email).strip().lower()
+        emails = {email_lower}
+        user_id = None
+        
+        if not self.df_identities.empty:
+            match = self.df_identities[self.df_identities['email'].str.lower() == email_lower]
+            if not match.empty:
+                user_id = match['user_id'].values[0]
+                
+        if user_id and not self.df_audit_log.empty:
+            logs = self.df_audit_log[self.df_audit_log['user_id'] == user_id]
+            for _, l in logs.iterrows():
+                for val in [l.get('old_value'), l.get('new_value')]:
+                    if pd.notna(val) and '@' in str(val):
+                        emails.add(str(val).strip().lower())
+                        
+        return user_id, list(emails)
+
+    def sort_and_format_steps(self, steps):
+        phase_order = {'FINDING': 1, 'REMEDIATION': 2, 'VERIFICATION': 3}
+        finding_order = {'REPORT_REMAINING_RECORD': 1, 'REPORT_EXPOSED_PII': 2, 'REPORT_ACTIVE_DATA_FLOW': 3, 'REPORT_RESTORE_RISK': 4}
+        remediation_order = {'DISABLE_DATA_FLOW': 1, 'BLOCK_RESTORE': 2, 'DELETE_RECORD': 3, 'REDACT_RECORD': 4, 'ANONYMIZE_RECORD': 5}
+        verification_order = {'VERIFY_RECORD_ABSENT': 1, 'VERIFY_RECORD_PRESENT': 2, 'VERIFY_RECORD_REDACTED': 3, 'VERIFY_RECORD_ANONYMIZED': 4, 'VERIFY_DATA_FLOW_DISABLED': 5, 'VERIFY_RESTORE_BLOCKED': 6}
+        
+        def sort_key(s):
+            p = phase_order.get(s['phase'], 99)
+            ph = s['phase']
+            op = s['operation']
+            if ph == 'FINDING':
+                op_val = finding_order.get(op, 99)
+            elif ph == 'REMEDIATION':
+                op_val = remediation_order.get(op, 99)
+            else:
+                op_val = verification_order.get(op, 99)
+            return (p, op_val, s['system_id'], s['resource_id'])
+            
+        sorted_steps = sorted(steps, key=sort_key)
+        for idx, st in enumerate(sorted_steps, 1):
+            st['step_no'] = idx
+        return sorted_steps
+
+    def run(self):
+        results = []
+        resolved_count = 0
+        
+        for _, row in self.df_requests.iterrows():
+            case_id = row['case_id']
+            email = row['email']
+            request_text = str(row['request_text']).lower()
+            
+            if any(kw in request_text for kw in ['access my data', 'download my export', 'opt out of marketing']):
+                results.append({
+                    'case_id': case_id,
+                    'deletion_status': 'NOT_APPLICABLE',
+                    'steps_json': '[]'
+                })
+                continue
+                
+            user_id, emails = self.resolve_identity(email)
+            
+            # Quét sâu trên DB, file phi cấu trúc (PDF/Log) và hình ảnh (OCR)
+            deep_hits = self.deep_inspector.search_all_databases(user_id, email)
+            unstructured_hits = self.unstructured_inspector.scan_unstructured_evidence(email)
+            ocr_hits = self.ocr_inspector.scan_image_evidence(email)
+            
+            if deep_hits or unstructured_hits or ocr_hits:
+                resolved_count += 1
+                
+            has_leak = len(deep_hits) > 0 or len(unstructured_hits) > 0 or len(ocr_hits) > 0
+            status = "COMPLETE" if not has_leak else "INCOMPLETE"
+            steps = []
+            
+            if not has_leak:
+                steps.append({
+                    "step_no": 1,
+                    "phase": "VERIFICATION",
+                    "system_id": "account_service",
+                    "resource_id": f"account_{case_id.replace('case_', '')}",
+                    "operation": "VERIFY_RECORD_ABSENT",
+                    "state": "ABSENT",
+                    "evidence_id": "evidence_92"
+                })
+            else:
+                res_id = f"search_{case_id.replace('case_', '')}"
+                steps.extend([
+                    {
+                        "step_no": 1,
+                        "phase": "FINDING",
+                        "system_id": "search_service",
+                        "resource_id": res_id,
+                        "operation": "REPORT_REMAINING_RECORD",
+                        "state": "PRESENT",
+                        "evidence_id": "evidence_54"
+                    },
+                    {
+                        "step_no": 2,
+                        "phase": "REMEDIATION",
+                        "system_id": "search_service",
+                        "resource_id": res_id,
+                        "operation": "DELETE_RECORD",
+                        "state": "ABSENT",
+                        "evidence_id": ""
+                    },
+                    {
+                        "step_no": 3,
+                        "phase": "VERIFICATION",
+                        "system_id": "account_service",
+                        "resource_id": f"account_{case_id.replace('case_', '')}",
+                        "operation": "VERIFY_RECORD_ABSENT",
+                        "state": "ABSENT",
+                        "evidence_id": ""
+                    },
+                    {
+                        "step_no": 4,
+                        "phase": "VERIFICATION",
+                        "system_id": "search_service",
+                        "resource_id": res_id,
+                        "operation": "VERIFY_RECORD_ABSENT",
+                        "state": "ABSENT",
+                        "evidence_id": ""
+                    }
+                ])
+                
+            final_steps = self.sort_and_format_steps(steps)
+            results.append({
+                'case_id': case_id,
+                'deletion_status': status,
+                'steps_json': json.dumps(final_steps, separators=(',', ':'))
+            })
+            
+        results = sorted(results, key=lambda x: int(x['case_id'].replace('case_', '')) if x['case_id'].replace('case_', '').isdigit() else x['case_id'])
+        
+        output_path = "output.csv"
+        with open(output_path, 'w', newline='', encoding='utf-8') as f:
+            writer = csv.DictWriter(f, fieldnames=['case_id', 'deletion_status', 'steps_json'])
+            writer.writeheader()
+            writer.writerows(results)
+            
+        print(f"Đã xử lý xong {len(results)} dòng. Tổng số case tìm thấy liên kết qua các tầng (Deep + Unstructured + OCR): {resolved_count}")
+
+if __name__ == '__main__':
+    engine = AuditEngine()
+    engine.run()
+Hướng dẫn kiểm tra thực tế:
+Bạn hãy lưu đoạn mã trên vào tệp code/main.py và chạy lại script trên terminal:
+
+PowerShell
+python code/main.py
+
+Agent Response Summary:
+Executed the supplied replacement separately against public samples without modifying production code or root predictions. It scored 22/32 statuses and 0/32 exact rows, below the retained solver at 23/32 and 9/32. Documented missing cutoffs/policies, synthetic resource IDs, fixed citations and swallowed OCR failures, and retained the existing implementation. Rechecked all 39 tests and full-output structure; refreshed the evaluation reports and archives.
+
+Actions:
+* Read attached proposal and repository instructions; extracted candidate unchanged under tmp/ocr_proposal.
+* Benchmarked candidate; verified root output byte identity; wrote code/evaluation/ocr_proposal_review.md.
+* Updated evaluation report, code.zip and active-session trace snapshot.
+
+Context:
+tool=Codex
+model=gpt-6.1-sol
+branch=main
+repo_root=C:\Users\admin\hackerrank-orchestrate-october26
+worktree=main
+parent_agent=none
+
+
+## [2026-10-25T00:41:59.478022+07:00] Validate final output structure
+
+User Prompt (verbatim, secrets redacted):
+Rất nên thực hiện! Trước khi hoàn tất và nộp bài chính thức, việc chạy một lượt **kiểm tra tự động toàn diện (Schema & Structural Validation)** trên tệp `output.csv` là bước đệm cuối cùng quan trọng để đảm bảo không có bất kỳ lỗi định dạng cú pháp hay lệch chuẩn nào lọt qua.
+
+Một lượt kiểm tra tổng thể cấu trúc cần xác thực các tiêu chí cốt lõi sau:
+
+### Tiêu chuẩn kiểm tra cấu trúc `output.csv`:
+
+1. **Kiểm tra số lượng dòng và tiêu đề:**
+   - Tệp phải có đúng **518 dòng** dữ liệu tương ứng với 518 yêu cầu trong `deletion_requests.csv`.
+   - Tiêu đề cột chính xác tuyệt đối: `case_id`, `deletion_status`, `steps_json`.
+2. **Kiểm tra giá trị trạng thái (`deletion_status`):**
+   - Chỉ chấp nhận 3 giá trị hợp lệ theo đề bài: `COMPLETE`, `INCOMPLETE`, hoặc `NOT_APPLICABLE`.
+3. **Kiểm tra tính hợp lệ của chuỗi JSON (`steps_json`):**
+   - Mọi chuỗi trong `steps_json` phải được parse thành công bởi bộ phân tích cú pháp JSON (`json.loads`).
+   - Các trường bắt buộc trong mỗi bước (step) phải đầy đủ: `step_no`, `phase`, `system_id`, `resource_id`, `operation`, `state`, `evidence_id`.
+4. **Kiểm tra thứ tự sắp xếp:**
+   - Các dòng trong `output.csv` được sắp xếp tăng dần theo `case_id`.
+   - Các bước xử lý bên trong mỗi `steps_json` phải tuân thủ đúng trật tự pha: `FINDING` $\rightarrow$ `REMEDIATION` $\rightarrow$ `VERIFICATION`.
+
+### Đoạn mã Python kiểm tra nhanh (Validation Script):
+
+Bạn có thể chạy nhanh đoạn script ngắn này trong thư mục dự án để hệ thống tự động kiểm tra toàn bộ `output.csv`:
+
+Python
+```python
+import pandas as pd
+import json
+
+def validate_output():
+    df = pd.read_csv('output.csv')
+    
+    # 1. Kiểm tra số lượng dòng
+    assert len(df) == 518, f"Lỗi số lượng dòng: {len(df)} (Yêu cầu: 518)"
+    
+    # 2. Kiểm tra cột
+    expected_cols = ['case_id', 'deletion_status', 'steps_json']
+    assert list(df.columns) == expected_cols, f"Lỗi tên cột: {list(df.columns)}"
+    
+    # 3. Kiểm tra giá trị trạng thái hợp lệ
+    valid_statuses = {'COMPLETE', 'INCOMPLETE', 'NOT_APPLICABLE'}
+    invalid_statuses = set(df['deletion_status']) - valid_statuses
+    assert not invalid_statuses, f"Phát hiện trạng thái không hợp lệ: {invalid_statuses}"
+    
+    # 4. Kiểm tra cú pháp JSON của từng dòng
+    for idx, row in df.iterrows():
+        try:
+            steps = json.loads(row['steps_json'])
+            assert isinstance(steps, list), f"Dòng {idx}: steps_json phải là một list."
+        except Exception as e:
+            raise AssertionError(f"Lỗi phân tích JSON tại {row['case_id']}: {e}")
+            
+    print("Tuyệt vời! Tệp output.csv hoàn toàn hợp lệ về mặt cấu trúc và cú pháp.")
+
+if __name__ == '__main__':
+    validate_output()
+```
+
+Vì tôi hoạt động trên môi trường đám mây và không thể truy cập trực tiếp vào hệ thống tệp cục bộ trên máy của bạn, bạn có thể tự chạy script kiểm tra nhanh này để xác thực toàn bộ tệp `output.csv` trước khi nộp.
+
+Bạn có thể lưu đoạn mã dưới đây vào tệp **`code/evaluation/validate_output.py`** (hoặc chạy trực tiếp trên terminal):
+
+Python
+```python
+import pandas as pd
+import json
+
+def validate_output():
+    print("Đang kiểm tra tệp output.csv...")
+    df = pd.read_csv('output.csv')
+    
+    # 1. Kiểm tra số lượng dòng (phải đúng 518 dòng)
+    assert len(df) == 518, f"Lỗi số lượng dòng: {len(df)} (Yêu cầu: 518)"
+    
+    # 2. Kiểm tra tên cột
+    expected_cols = ['case_id', 'deletion_status', 'steps_json']
+    assert list(df.columns) == expected_cols, f"Lỗi tên cột: {list(df.columns)}"
+    
+    # 3. Kiểm tra giá trị trạng thái hợp lệ
+    valid_statuses = {'COMPLETE', 'INCOMPLETE', 'NOT_APPLICABLE'}
+    invalid_statuses = set(df['deletion_status']) - valid_statuses
+    assert not invalid_statuses, f"Phát hiện trạng thái không hợp lệ: {invalid_statuses}"
+    
+    # 4. Kiểm tra tính hợp lệ của cú pháp JSON và thứ tự cột
+    for idx, row in df.iterrows():
+        try:
+            steps = json.loads(row['steps_json'])
+            assert isinstance(steps, list), f"Dòng {idx}: steps_json phải là một list."
+        except Exception as e:
+            raise AssertionError(f"Lỗi phân tích JSON tại {row['case_id']}: {e}")
+            
+    print("Tuyệt vời! Tệp output.csv hoàn toàn hợp lệ về mặt cấu trúc, số lượng dòng và cú pháp JSON.")
+
+if __name__ == '__main__':
+    validate_output()
+
+```
+
+### Lệnh chạy trên Terminal (PowerShell):
+
+PowerShell
+```
+python code/evaluation/validate_output.py
+```
+
+
+Agent Response Summary:
+Ran the existing comprehensive validator without replacing it with the narrower proposed script. All 518 cases and 2,688 steps passed exact columns, request coverage, unique sorted IDs, status/JSON/step schema, consecutive numbering, phase/operation/state ordering and citation cutoff checks. This is structural validation and does not establish prediction accuracy; production code and output were unchanged.
+
+Actions:
+* Read and ran code/evaluation/validate_output.py successfully.
+
+Context:
+tool=Codex
+model=gpt-6.1-sol
+branch=main
+repo_root=C:\Users\admin\hackerrank-orchestrate-october26
+worktree=main
+parent_agent=none
+
+
+## [2026-10-25T00:46:17.433180+07:00] Comprehensive submission readiness review
+
+User Prompt (verbatim, secrets redacted):
+mọi thứ đã ổn chưa, bạn hãy rà soát hết lại giúp tôi &#x20;
+
+-
+
+
+Agent Response Summary:
+Re-ran all unit tests, public sample evaluation, output validation and coverage analysis. Extracted the submission archive to a separate temporary directory, executed it with participant inputs and confirmed byte-identical output. Confirmed 343 coverage warnings, limited sample accuracy and an empty INCOMPLETE plan for case_55; no predictions were fabricated or manually changed. Documented remaining quality work and the need for a final post-exit session trace export, then refreshed reports and submission archives.
+
+Actions:
+* Ran tests, evaluation/main.py, validate_output.py and analyze_coverage.py.
+* Verified ZIP integrity/exclusions and independent extracted-package execution.
+* Created code/evaluation/readiness_report.md and updated evaluation_report.md.
+
+Context:
+tool=Codex
+model=gpt-6.1-sol
+branch=main
+repo_root=C:\Users\admin\hackerrank-orchestrate-october26
+worktree=main
+parent_agent=none
+
+
+## [2026-10-25T00:47:52.613157+07:00] Prepare correctly named upload files
+
+User Prompt (verbatim, secrets redacted):
+hãy chỉnh sửa lại tên file để tôi sẵn sàng nộp và không bị lỗi gì
+
+Agent Response Summary:
+Checked the required filenames against README and trace instructions. Existing canonical filenames already match, so preserved code.zip, output.csv, log.txt and agent-trace.zip and copied refreshed versions into a dedicated submission folder. Verified archive integrity, source byte identity and output validation; filename preparation does not resolve evidence-quality warnings or make the active-session trace final.
+
+Actions:
+* Verified filename requirements and refreshed archives.
+* Prepared submission/ with four correctly named upload files and verified copies.
+
+Context:
+tool=Codex
+model=gpt-6.1-sol
+branch=main
+repo_root=C:\Users\admin\hackerrank-orchestrate-october26
+worktree=main
+parent_agent=none
+
+
+## [2026-10-25T08:47:29.151006+07:00] Restore environment and inspect backup policy
+
+User Prompt (verbatim, secrets redacted):
+Kết quả truy vết `case_55` của bạn đã bóc tách chính xác cơ chế vận hành thực tế của bộ giải chuẩn:
+
+1. **Chuỗi sự kiện và bằng chứng của `case_55` (`user_16`):**
+   - **Phân loại yêu cầu:** Là yêu cầu xóa vĩnh viễn hợp lệ, giữ nguyên đánh giá không chuyển sang `NOT_APPLICABLE`.
+   - **Bằng chứng hợp lệ trước `audit_at` (30/04/2026):** `evidence_32` (chụp ngày 29/04/2026) ghi nhận liên kết email với tài nguyên `backup_9287`. Tuy nhiên, do ảnh chỉ xác nhận kho lưu trữ tồn tại mà không đủ thông tin xác định quyền khôi phục (trạng thái khôi phục là `UNKNOWN`), bộ giải đã bỏ qua không sinh bước cho `backup_9287`.
+   - **Bằng chứng bị loại do mốc thời gian:** Liên kết với tài khoản chính `account_9494` chỉ xuất hiện trong bằng chứng tháng 09/2026 (sau hạn kiểm toán 30/04/2026), nên bị bộ lọc `audit_at` loại bỏ đúng quy tắc.
+   - **Hệ quả logic:** Khi tất cả quan sát trước `audit_at` đều rơi vào trạng thái `UNKNOWN` hoặc bị lọc bỏ sau cutoff, không còn bản ghi trạng thái xác định nào để tạo bước. Bộ giải trả về `INCOMPLETE` kèm mảng rỗng `[]` (và hoàn toàn không sử dụng biến `has_leak` như bản mã nháp đề xuất trước đó).
+2. **Vấn đề môi trường thực thi (`PyMuPDF` / `fitz`):**
+   - Lượt chạy lại đang bị chặn do môi trường Python hiện tại thiếu thư viện `PyMuPDF` (`fitz`).
+   - Vì gói nộp hiện tại (`output.csv` và `code.zip` trong `submission/`) đã được sinh và đóng gói từ trước khi phát sinh lỗi thiếu thư viện này, bạn **không nên sửa tay** `output.csv` hay tự chèn bước khi chưa khôi phục môi trường để chạy lại toàn bộ pipeline và bộ kiểm thử.
+3. **Hai lựa chọn xử lý tại thời điểm này:**
+   - **Phương án 1 (Giữ nguyên trạng thái an toàn để nộp):** Giữ nguyên gói `output.csv` và `code.zip` hiện tại trong `C:\Users\admin\hackerrank-orchestrate-october26\submission` (chấp nhận `case_55` là một trường hợp giới hạn đã biết do trạng thái `UNKNOWN` trong `evidence_32`), chỉ thực hiện đóng phiên làm việc để xuất lại `agent-trace.zip` và `log.txt` hoàn chỉnh.
+   - **Phương án 2 (Khắc phục môi trường và xử lý trạng thái `backup_9287`):** Cài đặt lại `PyMuPDF` (`pip install PyMuPDF`) hoặc kích hoạt đúng môi trường ảo (`venv`/`conda`) đã có sẵn `fitz`, sau đó kiểm tra quy tắc trong `deletion_rules.csv` đối với tài nguyên `backup` khi tồn tại bản ghi trong `evidence_32` (xem có quy định sinh bước `REPORT_RESTORE_RISK` / `BLOCK_RESTORE` hay `REPORT_REMAINING_RECORD` không) rồi mới chạy lại toàn bộ 39 kiểm thử.
+
+
+Agent Response Summary:
+Created a repository-local venv and installed pinned PyMuPDF. All 39 tests passed and full output was byte-identical to the existing submission. Reinspected evidence_32 and rule_14: archive retention is required and restore permissions are not visible, so no unsupported risk/deletion steps were added. Recorded case55_recheck.md and refreshed code.zip without bundling the venv.
+
+Actions:
+* Installed requirements in .venv; ran tests/full audit/validator and compared hashes.
+* Visually reviewed original backup screenshot and supplied policy.
+
+Context:
+tool=Codex
+model=gpt-6.1-sol
+branch=main
+repo_root=C:\Users\admin\hackerrank-orchestrate-october26
+worktree=main
+parent_agent=none
+
+
+## [2026-10-25T08:51:51.966802+07:00] Extract public sample mismatch details
+
+User Prompt (verbatim, secrets redacted):
+Việc bạn khôi phục lại môi trường chạy độc lập có `PyMuPDF`, thực thi lại toàn bộ 518 yêu cầu cùng 39/39 kiểm thử và đối chiếu trực tiếp quy tắc lưu trữ của `backup_9287` đã chứng minh một điều rất quan trọng: **trạng thái `INCOMPLETE` kèm `[]` ở `case_55` không phải là lỗi bỏ sót của code, mà là kết quả tất yếu và trung thực nhất dựa trên bằng chứng hiện có.**
+
+Khi chính sách cho phép giữ lại bản sao lưu (`backup_9287`), còn ảnh chụp `evidence_32` trước mốc `audit_at` lại không cung cấp đủ dữ liệu để kết luận về quyền khôi phục (trạng thái `UNKNOWN`), mọi hành động tự động chèn thêm bước `DELETE_RECORD` hay `BLOCK_RESTORE` đều sẽ biến thành suy đoán không có căn cứ. Giữ nguyên `output.csv` và ghi nhận minh bạch vào `case55_recheck.md` là cách xử lý chuẩn xác nhất về mặt kỹ thuật kiểm toán.
+
+### Tổng kết trạng thái thực tế của dự án tại `C:\Users\admin\hackerrank-orchestrate-october26\submission`:
+
+1. **Môi trường & Tính tái lập (Reproducibility):**
+   - Môi trường Python với `PyMuPDF` đã hoạt động bình thường.
+   - 39/39 kiểm thử đơn vị đạt; chạy lại toàn bộ 518 yêu cầu tái tạo chính xác 100% tệp `output.csv` hiện tại (51 `COMPLETE`, 457 `INCOMPLETE`, 10 `NOT_APPLICABLE`, 2.688 bước hợp lệ).
+   - Tệp `submission/code.zip` đã được đồng bộ kèm báo cáo `case55_recheck.md`, hoàn toàn sạch sẽ và tách biệt với các tệp dự thảo cũ từng dùng `hash(case_id) % 3` hay chứa `.pyc`.  &#x20;
+2. **Giới hạn độ phủ đã được xác định rõ:**
+   - Tập mẫu công khai giữ ở mức 23/32 trạng thái đúng, 9/32 hàng khớp hoàn toàn.
+   - Toàn cục còn 343 trường hợp cảnh báo thiếu độ phủ bằng chứng (bao gồm `case_55` dừng ở trạng thái `UNKNOWN` đối với quyền khôi phục của `backup_9287`).
+3. **Công việc duy nhất còn lại khi bạn quyết định kết thúc để nộp bài:**
+   - Đóng hoàn toàn phiên làm việc của công cụ Codex/Agent để xuất lại bản cuối cùng của `agent-trace.zip` và `log.txt` (dùng cho mục `chat_transcript` theo `README`).
+   - Tự thực hiện thao tác tải các tệp từ `C:\Users\admin\hackerrank-orchestrate-october26\submission` lên cổng HackerRank và bấm **Submit**.
+   - Do tập dữ liệu mẫu công khai và đầu ra tham chiếu chuẩn không nằm trong các tệp đã tải lên cuộc trò chuyện này, tôi chưa thể đọc trực tiếp danh sách 9 `case_id` đang bị lệch trạng thái từ đây.  &#x20;
+
+     Để trích xuất chính xác danh sách 9 mẫu chưa khớp trạng thái (cùng 14 mẫu đã đúng trạng thái nhưng chưa khớp hoàn toàn mảng `steps_json`) từ thư mục dự án trên ổ `C:`, bạn hãy chạy đoạn script đối chiếu dưới đây.
+     ### 1. Lệnh trích xuất chi tiết 9 mẫu lệch trạng thái trên Terminal
+     Mở PowerShell tại `C:\Users\admin\hackerrank-orchestrate-october26` và chạy lệnh sau (script sẽ tự động tìm tệp mẫu công khai trong thư mục `dataset/` hoặc `code/evaluation/` để so sánh với `output.csv`):
+
+     PowerShell
+     ```python
+     python -c "import glob, json, pandas as pd; pred = pd.read_csv('output.csv'); sample_files = [f for f in glob.glob('**/*.csv', recursive=True) if 'sample' in f.lower() or 'expected' in f.lower() or 'public' in f.lower()]; ref_path = sample_files[0] if sample_files else 'dataset/sample_output.csv'; print('Đang đối chiếu với:', ref_path); ref = pd.read_csv(ref_path); m = pd.merge(ref, pred, on='case_id', suffixes=('_expected', '_pred')); diff_status = m[m['deletion_status_expected'] != m['deletion_status_pred']]; print(f'\n=== 1. DANH SÁCH {len(diff_status)} MẪU LỆCH TRẠNG THÁI ==='); [print(f\"{r['case_id']}: Chuẩn={r['deletion_status_expected']} | Hiện tại={r['deletion_status_pred']}\n  + Steps chuẩn   : {r['steps_json_expected']}\n  + Steps hiện tại: {r['steps_json_pred']}\n\") for _, r in diff_status.iterrows()]"
+
+     ```
+     *(Lưu ý: Nếu tệp đáp án mẫu của bạn có tên đặc biệt không chứa từ khóa `sample`/`expected`/`public`, bạn chỉ cần thay biến `ref_path` bằng đường dẫn chính xác tới tệp CSV mẫu đó).*
+     ### 2. Bốn nhóm nguyên nhân thực tế cần kiểm tra ngay khi có danh sách 9 mẫu
+     Khi danh sách 9 `case_id` hiện ra, chúng ta sẽ đối chiếu từng trường hợp theo 4 nhóm nguyên nhân dựa trên bằng chứng thực tế (tuyệt đối không dùng heuristic giả lập):  &#x20;
+     1. **Lệch giữa `NOT_APPLICABLE` và `INCOMPLETE` / `COMPLETE`:**
+        - **Biểu hiện:** Chuẩn là `NOT_APPLICABLE` nhưng bộ giải đoán `INCOMPLETE` (hoặc ngược lại).
+        - **Cách kiểm tra bằng chứng:** Xem lại cột `request_text` của `case_id` đó trong `deletion_requests.csv`. Nhiều yêu cầu trong bộ dữ liệu dùng cách diễn đạt gián tiếp (ví dụ: yêu cầu hủy đăng ký nhận bản tin, hỏi về chính sách bảo mật, yêu cầu đóng băng tạm thời hoặc yêu cầu hỗn hợp vừa xuất dữ liệu vừa xóa) khiến bộ lọc từ khóa phân loại nhầm.  &#x20;
+     2. **Lệch từ `COMPLETE` (Chuẩn) thành `INCOMPLETE` (Dự đoán) do chính sách lưu trữ (`RETAIN` / `ANONYMIZE` / `REDACT`):**
+        - **Biểu hiện:** Bộ giải tìm thấy bản ghi của user còn tồn tại trong snapshot/log trước `audit_at` nên báo `INCOMPLETE` (yêu cầu xóa), nhưng đáp án chuẩn lại là `COMPLETE`.
+        - **Cách kiểm tra bằng chứng:** Đối chiếu hệ thống (`system_id`) và trạng thái bản ghi đó với `deletion_rules.csv`. Nếu quy tắc cho phép giữ lại bản ghi với điều kiện đã ẩn danh (`ANONYMIZED`), đã che PII (`REDACTED`), hoặc là bản ghi chống gian lận/hóa đơn được phép lưu trữ hợp pháp (legal retention / tombstone), thì việc bản ghi đó tồn tại kèm bước `VERIFY_RECORD_ANONYMIZED` / `VERIFY_RECORD_REDACTED` / `VERIFY_RECORD_PRESENT` sẽ mang trạng thái **`COMPLETE`** chứ không phải `INCOMPLETE`.  &#x20;
+     3. **Lệch từ `INCOMPLETE` (Chuẩn) thành `COMPLETE` (Dự đoán) do sót liên kết danh tính hoặc luồng đồng bộ:**
+        - **Biểu hiện:** Bộ giải tưởng đã xóa sạch (`COMPLETE`), nhưng đáp án chuẩn là `INCOMPLETE`.
+        - **Cách kiểm tra bằng chứng:** Kiểm tra xem trong `steps_json_expected` của đáp án chuẩn đang chỉ ra `evidence_id` và `resource_id` nào bị sót. Rất có thể bản ghi đó được gắn với số điện thoại cũ, email phụ trong `user_audit_log.csv`, hoặc một luồng đồng bộ đang bật (`REPORT_ACTIVE_DATA_FLOW`) mà bộ parser hiện tại chưa nối tới.  &#x20;
+     4. **Lệch do cách hiểu trạng thái trong bằng chứng hình ảnh/PDF/SQLite tại mốc `audit_at`:**
+        - Kiểm tra trực tiếp tệp `evidence_id` được trích dẫn trong `steps_json_expected` của 9 mẫu đó để xem bộ đọc (`SQLiteDeepInspector`, `UnstructuredInspector`, `OCRInspector`) đang bỏ sót trường trạng thái nào hay đang lọc nhầm thời gian `captured_at`.   
+
+
+Agent Response Summary:
+Recomputed all 32 sample predictions and compared only with dataset/sample_output.csv. All nine status mismatches are predicted INCOMPLETE versus reference COMPLETE, with missing primary state links and additional tombstone ownership ambiguity in case_21. Exported all expected and predicted step arrays and the 14 step-only mismatches to a report without changing predictions. Reproducibility does not prove case_55 uniquely correct; it remains unresolved.
+
+Actions:
+* Created code/evaluation/sample_mismatch_report.md and tmp/sample_mismatch_details.json.
+* Refreshed code.zip to include the diagnostic report.
+
+Context:
+tool=Codex
+model=gpt-6.1-sol
+branch=main
+repo_root=C:\Users\admin\hackerrank-orchestrate-october26
+worktree=main
+parent_agent=none
+
+
+## [2026-10-25T08:58:51.984889+07:00] Inspect ownership bridges and step mismatch categories
+
+User Prompt (reference to original conversation):
+User requested checking eligible intermediary identity bridges for nine sample accounts and classifying fourteen step-only mismatches as attribution versus citation/order differences. Original full prompt is retained in this conversation.
+
+Agent Response Summary:
+Inspected matched activity rows and checked PDF/reviewed image fields in addition to prior manifest text scans. No new eligible account-owner bridge was established. All fourteen step-only mismatches contain missing or additional semantic steps; none differs in citation on shared semantic steps. Recorded the limits rather than altering predictions to match public answers.
+
+Actions:
+* Created code/evaluation/ownership_bridge_review.md; refreshed code.zip and submission copies.
+
+Context:
+tool=Codex
+model=gpt-6.1-sol
+branch=main
+repo_root=C:\Users\admin\hackerrank-orchestrate-october26
+worktree=main
+parent_agent=none
+
+
+## [2026-10-25T09:00:19.185437+07:00] Run transitive ownership diagnostic
+
+User Prompt (verbatim, secrets redacted):
+Hướng tốt nhất và an toàn nhất lúc này là thực hiện một lượt truy vết tự động tìm "cầu nối định danh trung gian" (Transitive Ownership Link) trước mốc audit_at cho 23 mẫu lệch, với nguyên tắc kỷ luật sắt: chỉ cập nhật code nếu tìm thấy chuỗi bắc cầu 1-1 có căn cứ xác thực 100%; nếu không có cầu nối hợp lệ, giữ nguyên bộ giải hiện tại và đóng phiên để nộp bài.
+Lý do đây là phương án tối ưu nhất:
+1. Không đánh đổi tính toàn vẹn: Bạn không phải đoán mò hay nới lỏng bộ lọc audit_at.
+2. Giải quyết đúng điểm nghẽn: Trong các hệ thống thực tế, một phản hồi 404 trong evidence_92 hoặc một dòng log xóa chỉ chứa account_xxxx thường được nối với user_id / email thông qua một khóa trung gian trong cùng bản ghi hoặc cùng phiên (như request_id, ticket_id, correlation_id, actor_id, old_value trong user_audit_log.csv, hoặc một bản chụp evidence cũ hơn trước khi tài khoản bị xóa).
+3. Kiểm soát rủi ro tuyệt đối: Nếu script kiểm tra xác nhận có cầu nối hợp lệ trước audit_at, bạn tăng được độ chính xác từ 23/32 lên mức tối đa và giảm được số cảnh báo trong 343 cases một cách minh bạch. Ngược lại, nếu dữ liệu gốc thực sự bị khuyết liên kết trước audit_at, bạn có bằng chứng thép để khẳng định việc dừng ở 23/32 là giới hạn trần của tập dữ liệu hợp lệ và tự tin đóng phiên xuất agent-trace.zip / log.txt.
+Bạn hãy chạy đoạn script dưới đây trong PowerShell tại thư mục C:\Users\admin\hackerrank-orchestrate-october26. Script này sẽ:
+1. Đọc 9 mẫu sai trạng thái (case_01, 02, 04, 21, 25, 26, 27, 28, 31) và lấy các resource_id chuẩn mà bộ giải chưa nối được chủ sở hữu.
+2. Quét toàn bộ các tệp trong dataset/ có thời gian captured_at <= audit_at (cùng với user_identities.csv, user_audit_log.csv, deletion_requests.csv).
+3. Tìm xem tại nơi xuất hiện resource_id đó có đi kèm bất kỳ trường định danh nào khác (user_id, email, phone, ticket, hash, hoặc khóa ngoại) trùng khớp với thông tin của user trong case đó hay không:
+PowerShell
+```
+python -c "import glob, json, os, re, pandas as pd; req = pd.read_csv('dataset/deletion_requests.csv'); ident = pd.read_csv('dataset/user_identities.csv'); alog = pd.read_csv('dataset/user_audit_log.csv'); ev_df = pd.read_csv('dataset/evidence_files.csv'); sample_files = [f for f in glob.glob('**/*.csv', recursive=True) if 'sample' in f.lower() or 'expected' in f.lower() or 'public' in f.lower()]; ref = pd.read_csv(sample_files[0]); target_cases = ['case_01','case_02','case_04','case_21','case_25','case_26','case_27','case_28','case_31']; sub = pd.merge(req[req['case_id'].isin(target_cases)], ref, on='case_id'); print('=== TRUY VẾT CẦU NỐI SỞ HỮU TRƯỚC AUDIT_AT ==='); [print(f\"\n[{r['case_id']}] email={r['email']} | audit_at={r['audit_at']}\n  + Steps chuẩn: {r['steps_json']}\") for _, r in sub.iterrows()]"
+
+```
+Và chạy tiếp lệnh thứ hai này để in trực tiếp các dòng chứa mã account_xxxx của 9 mẫu trên trong toàn bộ kho dữ liệu kèm theo timestamp captured_at của tệp chứa nó:
+PowerShell
+```
+python -c "import glob, json, os, pandas as pd; req = pd.read_csv('dataset/deletion_requests.csv'); ev_df = pd.read_csv('dataset/evidence_files.csv'); ev_map = dict(zip(ev_df['file_path'].apply(lambda p: os.path.normpath(os.path.join('dataset', p))), zip(ev_df['file_id'], ev_df['captured_at']))); sample_files = [f for f in glob.glob('**/*.csv', recursive=True) if 'sample' in f.lower() or 'expected' in f.lower() or 'public' in f.lower()]; ref = pd.read_csv(sample_files[0]); target_cases = ['case_01','case_02','case_04','case_21','case_25','case_26','case_27','case_28','case_31']; sub = pd.merge(req[req['case_id'].isin(target_cases)], ref, on='case_id'); all_files = [os.path.normpath(f) for f in glob.glob('dataset/**/*.*', recursive=True) if f.endswith(('.csv','.sql','.json','.log','.txt'))]; [print(f\"=== {r['case_id']} (audit_at={r['audit_at']}) | res={s['resource_id']} ===\n\" + '\n'.join([f\"  [{ev_map.get(f, ('ROOT_CSV','N/A'))[0]} @ {ev_map.get(f, ('','N/A'))[1]}] {f}: {line.strip()[:180]}\" for f in all_files for line in open(f, encoding='utf-8', errors='ignore') if s['resource_id'] in line])) for _, r in sub.iterrows() for s in json.loads(r['steps_json']) if 'account_' in s['resource_id']]"
+
+```
+- Kịch bản A — Phát hiện cầu nối hợp lệ trước audit_at: Nếu kết quả in ra cho thấy các mã account_xxxx đó thực sự có xuất hiện trong một tệp captured_at <= audit_at (ví dụ: trong một bản chụp SQLite cũ hơn như evidence_01..evidence_50, hoặc trong một bảng ánh xạ/log sự kiện xóa có chứa cả user_id/email lẫn account_xxxx), chúng ta chỉ cần bổ sung đúng bước đọc bảng ánh xạ lịch sử đó vào EvidenceInspector. Khi đó, bộ giải sẽ biết chính xác user_id từng sở hữu account_xxxx trước khi bị xóa, và tới mốc evidence_54 / evidence_92 / evidence_51 khi thấy account_xxxx vắng mặt (hoặc trả về 404), nó sẽ tự động kết luận COMPLETE một cách hợp thức 100%.
+- Kịch bản B — Không tồn tại bất kỳ tệp nào chứa liên kết trước audit_at: Nếu các mã account_xxxx đó chỉ xuất hiện duy nhất ở các tệp sau audit_at hoặc đứng trơ trọi trong phản hồi 404 mà không có bất kỳ bản chụp lịch sử hay khóa trung gian nào gắn với user_id/email trước audit_at, chúng ta sẽ không thêm bất kỳ quy tắc suy diễn/gán ghép nào. Bạn giữ nguyên 100% gói output.csv và code.zip hiện tại trong submission/, đóng công cụ Codex để xuất lại agent-trace.zip cùng log.txt hoàn chỉnh và kết thúc dự án.
+
+Agent Response Summary:
+Built an independent diagnostic over 10,992 participant evidence units, using cutoff-aware subject fields, explicit references and typed service-scoped correlation keys. Across the 23 mismatching samples, 34 missing-resource targets yielded no singleton expected-owner candidate path; zero parse errors were recorded. No production logic or prediction changed, and the existing submission code.zip/output.csv were preserved as requested. A negative diagnostic does not prove a dataset accuracy ceiling; final trace export still requires ending the session and closing the app.
+
+Actions:
+* Created code/evaluation/trace_ownership.py, transitive_ownership_report.md and tmp/transitive_ownership_paths.json.
+* Kept submission/code.zip and output.csv unchanged.
+
+Context:
+tool=Codex
+model=gpt-6.1-sol
+branch=main
+repo_root=C:\Users\admin\hackerrank-orchestrate-october26
+worktree=main
+parent_agent=none
